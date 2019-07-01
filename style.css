@@ -1,0 +1,123 @@
+/* this is css file for project tic tac toe */
+body{
+    background-color: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+    /* width: 100%; */
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+main{
+    text-align: center;
+}
+.playerTurn{
+    font-size: 20px;
+}
+
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    text-align: center;
+    margin-left: 25em;
+    margin-top: 100px;
+
+}
+
+
+.box{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    border: solid white 5px;
+    margin: 0;
+    font-size: 120px;
+    
+
+}
+#input1{
+    border-left: none;
+    border-top: none;
+
+}
+#input2{
+    
+    border-top: none;
+
+}
+#input3{
+    border-right: none;
+    border-top: none;
+
+}#input4{
+    border-left: none;
+    
+
+}
+#input6{
+    border-right: none;
+
+}
+#input7{
+    border-left: none;
+    border-bottom: none;
+
+}
+#input8{
+    border-bottom: none;
+
+}
+#input9{
+    border-right: none;
+    border-bottom: none;
+
+}
+button{
+    background-color: white;
+}
+
+@media (max-width:900px) {
+    body{
+        font-size: 8px;
+        text-align: center;
+        /* margin-left: 25px; */
+    }
+    button{
+        background-color: white;
+        width: 40px;
+        height: 12px;
+        padding: 2px;
+        font-size: 5px;
+    }
+    .playerTurn{
+        font-size: 5px;
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        width: 125px;
+        text-align: center;
+        margin-left: 140px;
+        margin-top: 25px;
+    
+    }
+    .box{
+        height: 37.5px;
+        width: 37.5px;
+        text-align: center;
+        border: solid white 1.25px;
+        margin: 0;
+        font-size: 30px;
+        
+        
+    
+    }
+   
+   
+      
+  
+  }
+
+

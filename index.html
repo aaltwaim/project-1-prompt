@@ -1,0 +1,69 @@
+<!-- this is html file for project tic tac toe -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <embed loop="true" src="beethoven-symphony6-1.mp3" hidden="true"
+            PLUGINSPAGE="http://www.apple.com/quicktime/"></embed>
+        <!-- to play a sound on the background -->
+        <div class="info">
+            <br>
+            Game Info:
+            <br>
+            <br>
+            X wins <span class="xWins">0</span>; O wins <span class="oWins">0</span>; it is tie <span
+                class="tie">0</span>
+        </div>
+        <br>
+        <div class="playerTurn">
+            Player <span class="playerName">X</span> Turns
+        </div>
+        <!-- I looked up the code for the reset button -->
+        <button class="clearButton" onclick=location=URL>New Game</button>
+        <button class="twoPlayer"> Play with another player</button>
+        <button class="onePlayer"> Play with the computer</button>
+        
+
+        <div class="container">
+
+            <div class="box" id="input1"></div>
+            <div class="box" id="input2"></div>
+            <div class="box" id="input3"></div>
+            <div class="box" id="input4"></div>
+            <div class="box" id="input5"></div>
+            <div class="box" id="input6"></div>
+            <div class="box" id="input7"></div>
+            <div class="box" id="input8"></div>
+            <div class="box" id="input9"></div>
+
+        </div>
+
+
+
+        <br>
+
+
+
+        <!-- I looked up the code for the reset button -->
+        <!-- <button onclick=location=URL>New Game</button> -->
+
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
