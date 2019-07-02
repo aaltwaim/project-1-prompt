@@ -1,11 +1,7 @@
 //this is Java Script file project tic tac toe
 $(document).ready(function () {
 
-     $(".box").hover(function (){
-        $(this).css("background-color", "gray");
-    }, function(){
-        $(this).css("background-color", "black");
-     });
+     
      // change the color of the box when the user hover with the mouse.
     
     let counter = 1;
@@ -202,6 +198,17 @@ $(document).ready(function () {
             'background':'black',
             'color': 'white',
         })
+        $('.box').css({
+            'background':'black',
+            'color': 'white',
+            'border-color':'white',
+
+        });
+        $(".box").hover(function (){
+            $(this).css("background-color", "gray");
+        }, function(){
+            $(this).css("background-color", "black");
+         });
 
     }
     $('.dark').on('click',changeToDarkTheme)
@@ -210,8 +217,12 @@ $(document).ready(function () {
         document.body.style.backgroundColor='white';
         document.body.style.color='black';
         $('.box').css({
-            'border-color':'black'
+            'border-color':'black',
+            'background':'white',
+            'color': 'black',
+
         })
+        
         $(".box").hover(function (){
             $(this).css("background-color", "gray");
         }, function(){
