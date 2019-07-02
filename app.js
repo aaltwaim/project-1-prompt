@@ -6,6 +6,7 @@ $(document).ready(function () {
     }, function(){
         $(this).css("background-color", "black");
      });
+     // change the color of the box when the user hover with the mouse.
     
     let counter = 1;
     let boolean = true;
@@ -192,6 +193,32 @@ $(document).ready(function () {
     }
     $(".clearButton").click(reset)
     // to clear the value stored in the local storage
+
+
+
+    // dark and light theme is Usman's code from the event class
+    const changeToDarkTheme = function(){
+        $('body').css({
+            'background':'black',
+            'color': 'white',
+        })
+
+    }
+    $('.dark').on('click',changeToDarkTheme)
+
+    const changeToLightTheme = function(){
+        document.body.style.backgroundColor='white';
+        document.body.style.color='black';
+        $('.box').css({
+            'border-color':'black'
+        })
+        $(".box").hover(function (){
+            $(this).css("background-color", "gray");
+        }, function(){
+            $(this).css("background-color", "white");
+         });
+     }
+     $('.light').on('click',changeToLightTheme)
 
 
 
