@@ -73,11 +73,13 @@ $(document).ready(function () {
 
 
     function onePlayer() {
-        counter=0;
+
         $(".box").click(function () {
 
-            
+
+
             if ($(this).text() == "" && boolean) {
+                counter = 2;
                 if ((counter % 2) == 0) {
                     $(this).append("X");
 
@@ -88,13 +90,15 @@ $(document).ready(function () {
                         if ($(rondomO).text() == "") {
                             $(rondomO).append("O");
                             break;
+
                         }
                     }
 
                 }
+                counter = counter + 2;
+                winnerCheck();
+
             }
-            counter = counter + 2;
-            winnerCheck();
 
             // if($(".twoPlayer").click(twoPlayer)){
             // location.reload();
@@ -105,6 +109,7 @@ $(document).ready(function () {
 
     $(".onePlayer").click(onePlayer)
     function twoPlayer() {
+
         $(".box").click(function () {
             if ($(this).text() == "" && boolean) {
                 if ((counter % 2) == 1) {
