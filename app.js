@@ -1,9 +1,9 @@
 //this is Java Script file project tic tac toe
 $(document).ready(function () {
 
-     
-     // change the color of the box when the user hover with the mouse.
-    
+
+    // change the color of the box when the user hover with the mouse.
+
     let counter = 1;
     let boolean = true;
     let xWinner = 0;
@@ -25,124 +25,101 @@ $(document).ready(function () {
         tie = 0;
 
     }
+    function winnerCheck() {
+        if (counter >= 3) {
+            if ((theGame() != -1) && (theGame() != "")) {
+                if (theGame() == "X") {
+                    alert("X Player Wins");
+                    xWinner = xWinner + 1;
+                    $(".xWins").text(xWinner);
+                    $(".box").empty();
+                    counter = 1;
+                    $(".playerName").text("X");
+                    localStorage.setItem('itemX', JSON.stringify(xWinner))
+                    const dataX = JSON.parse(localStorage.getItem('itemX'))
+                    return true;
+                    // check the function theGame() if X player is a winner
+                }
+                else if (theGame() == "O") {
+                    alert("O Players Wins");
+                    oWinner = oWinner + 1;
+                    $(".oWins").text(oWinner);
+                    $(".box").empty();
+                    counter = 1;
+                    localStorage.setItem('itemO', JSON.stringify(oWinner))
+                    const dataO = JSON.parse(localStorage.getItem('itemO'))
+                    return true;
+                    // check the function theGame() if O player is a winner
+                }
+
+                boolean = false;
+            }
+            else if (counter === 10) {
+                alert("It is tie");
+                tie = tie + 1;
+                $(".tie").text(tie)
+                $(".box").empty();
+                counter = 1;
+                $(".playerName").text("X");
+                localStorage.setItem('itemTie', JSON.stringify(tie))
+                const dataTie = JSON.parse(localStorage.getItem('itemTie'))
+
+                return true
+                //check the function theGame() if it is tie.
+
+            }
+        }
+    }
 
 
     function onePlayer() {
-        alert("This feature is coming soon")
-        //         for (let j = 1; j < 10; j++) {
-        //             console.log(j)
-        //             if ((j % 2) == 1) {
+        counter=0;
+        $(".box").click(function () {
 
-        //                 $(this).append("X");
-        //                 $(".playerName").text("O")
-        //                 //console.log(this)
-        //                 // adding X and changing the turn to O player
-        //             //     if((j % 2) == 0){
-        //             //         //console.log("H")
-        //             //         let arr = $(".box");
-        //             //         //console.log(arr)
+            
+            if ($(this).text() == "" && boolean) {
+                if ((counter % 2) == 0) {
+                    $(this).append("X");
 
-        //             //         // for (let i = 0; i < arr.length; i++) {
-        //             //             let emptyBox = arr[Math.floor(Math.random() * arr.length)]
-        //             //             console.log(emptyBox)
-        //             //             if ($(emptyBox).text() == "" && boolean) {
-        //             //                 emptyBox.append("O")
+                    for (let i = 0; i < 10; i++) {
+                        let rondomO = "#input" + Math.floor((Math.random() * 9) + 1);
+                        console.log(rondomO)
 
-        //             //             }
-        //             // } 
+                        if ($(rondomO).text() == "") {
+                            $(rondomO).append("O");
+                            break;
+                        }
+                    }
 
-        //             }else if((j % 2) == 0){
-        //                 //console.log("H")
-        //                 let arr = $(".box");
-        //                 //console.log(arr)
+                }
+            }
+            counter = counter + 2;
+            winnerCheck();
 
-        //                 // for (let i = 0; i < arr.length; i++) {
-        //                     let emptyBox = arr[Math.floor(Math.random() * arr.length)]
-        //                     console.log(emptyBox)
-        //                     if ($(emptyBox).text() == "" && boolean) {
-        //                         emptyBox.append("O")
+            // if($(".twoPlayer").click(twoPlayer)){
+            // location.reload();
+            // }
 
-        //                     }
-        //                 //}
-        //             }
-
-        //         }
-
+        });
     }
 
     $(".onePlayer").click(onePlayer)
-    // function random_item(items) {
-
-    //     return items[Math.floor(Math.random() * items.length)];
-
-    // }
-
-    // var items = [254, 45, 212, 365, 2543];
-    // console.log(random_item(items));
-
     function twoPlayer() {
         $(".box").click(function () {
-
-
             if ($(this).text() == "" && boolean) {
                 if ((counter % 2) == 1) {
                     $(this).append("X");
                     $(".playerName").text("O")
                     // adding X and changing the turn to O player
                 }
-
                 else {
                     $(this).append("O");
                     $(".playerName").text("X")
                     //adding O and changing the turn to X player
                 }
                 counter++;
-                if (counter >= 3) {
-                    if ((theGame() != -1) && (theGame() != "")) {
-                        if (theGame() == "X") {
-                            alert("X Player Wins");
-                            xWinner = xWinner + 1;
-                            $(".xWins").text(xWinner);
-                            $(".box").empty();
-                            counter = 1;
-                            $(".playerName").text("X");
-                            localStorage.setItem('itemX', JSON.stringify(xWinner))
-                            const dataX = JSON.parse(localStorage.getItem('itemX'))
-                            return true;
-                            // check the function theGame() if X player is a winner
-                        }
-                        else if (theGame() == "O") {
-                            alert("O Players Wins");
-                            oWinner = oWinner + 1;
-                            $(".oWins").text(oWinner);
-                            $(".box").empty();
-                            counter = 1;
-                            localStorage.setItem('itemO', JSON.stringify(oWinner))
-                            const dataO = JSON.parse(localStorage.getItem('itemO'))
-                            return true;
-                            // check the function theGame() if O player is a winner
-                        }
-
-                        boolean = false;
-                    }
-                    else if (counter === 10) {
-                        alert("It is tie");
-                        tie = tie + 1;
-                        $(".tie").text(tie)
-                        $(".box").empty();
-                        counter = 1;
-                        $(".playerName").text("X");
-                        localStorage.setItem('itemTie', JSON.stringify(tie))
-                        const dataTie = JSON.parse(localStorage.getItem('itemTie'))
-
-                        return true
-                        //check the function theGame() if it is tie.
-
-                    }
-                }
+                winnerCheck();
             }
-
-
         });
     }
 
@@ -193,47 +170,47 @@ $(document).ready(function () {
 
 
     // dark and light theme is Usman's code from the event class
-    const changeToDarkTheme = function(){
+    const changeToDarkTheme = function () {
         $('body').css({
-            'background':'black',
+            'background': 'black',
             'color': 'white',
         })
         $('.box').css({
-            'background':'black',
+            'background': 'black',
             'color': 'white',
-            'border-color':'white',
+            'border-color': 'white',
 
         });
-        $(".box").hover(function (){
+        $(".box").hover(function () {
             $(this).css("background-color", "gray");
-        }, function(){
+        }, function () {
             $(this).css("background-color", "black");
-         });
+        });
 
     }
-    $('.dark').on('click',changeToDarkTheme)
+    $('.dark').on('click', changeToDarkTheme)
 
-    const changeToLightTheme = function(){
-        document.body.style.backgroundColor='white';
-        document.body.style.color='black';
+    const changeToLightTheme = function () {
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = 'black';
         $('.box').css({
-            'border-color':'black',
-            'background':'white',
+            'border-color': 'black',
+            'background': 'white',
             'color': 'black',
 
         })
-        
-        $(".box").hover(function (){
+
+        $(".box").hover(function () {
             $(this).css("background-color", "gray");
-        }, function(){
+        }, function () {
             $(this).css("background-color", "white");
-         });
-     }
-     $('.light').on('click',changeToLightTheme)
+        });
+    }
+    $('.light').on('click', changeToLightTheme)
 
 
 
 
-   
+
 
 });
