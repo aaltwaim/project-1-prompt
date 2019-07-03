@@ -5,6 +5,7 @@ If the user choose to play as two player mode it will let you play as X for play
 the winnerCheck function works by calling theGame function and check if the winner satisfy 9 conditions to win and then alert the user if they win. After that it increment the win to the winner result in the game info and store the result in the local storage and it clear all the boxes.
 
 
+
 I added some additional features such as 
 1- playing music in the background, 
 2- I used the local storage to keep tarck of the game results.
