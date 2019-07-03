@@ -13,6 +13,6 @@ I added some additional features such as
 List of improvment to be made in the future
 1- improve the one player mode to make it as an AI opponent.
 2- need some CSS improvement in a responsive design.
-3-
+
 
 
